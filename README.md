@@ -4,8 +4,11 @@ Implementation of [Variational Auto-decoder](https://arxiv.org/pdf/1903.00840.pd
 # Introduction
 
 Variational Auto-Decoder refers to **encoderless** implementation of the Auto-Encoding Variational Bayes (AEVB) Algorithm. As opposed to using an encoder to infer the parameters of the posterior of the latent space ![equation](https://latex.codecogs.com/gif.latex?q%28z%7Cx_i%29): 
+
 *First:*  The decoder ![equation](https://latex.codecogs.com/gif.latex?%5Cmathcal%7BF%7D%20%28%5Ccdot%3B%5Ctheta%29) is sampled from using Markov Chain Monte Carlo approaches (MCMC). 
+
 *Second:* An arbitrary distribution (which is easy to sample from) is fit using Expectation-Maximization (EM) 
+
 *Third:* This distribution is used to sample the neighborhood of a datapoint ![equation](https://latex.codecogs.com/gif.latex?x_i). 
 
 The above By assuming a single mode for the distribution, the process of inference can be improved. 
