@@ -25,6 +25,12 @@ The above method finds a mixture model based on ![equation](https://latex.codeco
 
 ![alt text](https://github.com/A2Zadeh/Variational-Autodecoder/blob/master/Algorithm.png)
 
+## Results
+
+We make comparisons between VAE and VAD (both example implementations of AEVB algorithm) in generative modeling from partial data (data with missigness). In the figures below, ![equation](https://latex.codecogs.com/gif.latex?r) indicates the missing ratio which changes between 0.1 to 0.9 (10% to 90%). In all the figures lower is better. Please refer to the paper for exact details of each figure. 
+
+![alt text](https://github.com/A2Zadeh/Variational-Autodecoder/blob/master/Results.png)
+
 ## Practical Considerations 
 
 The losses for the reconstruction and the loss for KL (reparameterization) may act in opposite directions; simiar to VAE, enforcing nice distributional properties may come at the cost of reconstruction inaccuracy for certain data points. The code allows you to balance between the reconstruction and the KL terms. As a general rule of thumb, more complex datasets may not conform to simple ![equation](https://latex.codecogs.com/gif.latex?q%28z%29), such as densities with one mode. Therefore, the reconstruction may be bad. Therefore, we also allow for dropping the reparameterization fully, thus the model only learns a mixture based on ![equation](https://latex.codecogs.com/gif.latex?%5C%7Bq%28z%7Cx_i%29%5C%7D%5E%7Bx_i%20%5Cin%20X%7D). Due to missingness in data, learning the ![equation](https://latex.codecogs.com/gif.latex?%5CSigma_i) may also be problematic hence it can be treated as a hyperparameter. 
