@@ -5,13 +5,19 @@ Implementation of [Variational Auto-decoder](https://arxiv.org/pdf/1903.00840.pd
 
 Variational Auto-Decoder refers to **encoderless** implementation of the Auto-Encoding Variational Bayes (AEVB) Algorithm. As opposed to using an encoder to infer the parameters of the posterior of the latent space ![equation](https://latex.codecogs.com/gif.latex?q%28z%7Cx_i%29): 
 
-*First:*  The decoder ![equation](https://latex.codecogs.com/gif.latex?%5Cmathcal%7BF%7D%20%28%5Ccdot%3B%5Ctheta%29) is sampled from using Markov Chain Monte Carlo approaches (MCMC). 
+**First:**  The decoder ![equation](https://latex.codecogs.com/gif.latex?%5Cmathcal%7BF%7D%20%28%5Ccdot%3B%5Ctheta%29) is sampled from using Markov Chain Monte Carlo approaches (MCMC). 
 
-*Second:* An arbitrary distribution (which is easy to sample from) is fit using Expectation-Maximization (EM) 
+**Second:** An arbitrary distribution (which is easy to sample from) is fit using Expectation-Maximization (EM) 
 
-*Third:* This distribution is used to sample the neighborhood of a datapoint ![equation](https://latex.codecogs.com/gif.latex?x_i). 
+**Third:** This distribution is used to sample the neighborhood of a datapoint ![equation](https://latex.codecogs.com/gif.latex?x_i). 
 
-The above By assuming a single mode for the distribution, the process of inference can be improved. 
+The above assumes the decoder may have multiple modes (similar representation for different data points). By assuming a single mode for the distribution, the process of inference can be improved: 
+
+**First:** An arbitrary distribution (which is easy to sample from) is sampled from ![equation](https://latex.codecogs.com/gif.latex?z%20%5Csim%20q%28z%7Cx_i%29). This distribution is assumed to have one mode, hence performing gradient ascend (or descend) leads to a single outcome. One such distribution is a normal distribution ![equation](https://latex.codecogs.com/gif.latex?q%28z%7Cx_i%29%3A%3D%5Cmathcal%7BN%7D%28z%3B%20%5Cmu_i%2C%5CSigma_i%29)
+
+**Second:** After the sample is drawn ![equation](https://latex.codecogs.com/gif.latex?z) is drawn, the sample is used as input to the decoder ![equation](https://latex.codecogs.com/gif.latex?%5Cmathcal%7BF%7D%20%28%5Ccdot%3B%5Ctheta%29). 
+
+**Third:** Training is done by gradient ascend (or descend) w.r.t ![equation](https://latex.codecogs.com/gif.latex?%5Ctheta%2C%20%5Cmu_i%2C%20%5CSigma_i), inference (testing) is done by gradient ascend (or descend) w.r.t ![equation](https://latex.codecogs.com/gif.latex?%5Cmu_i%2C%20%5CSigma_i). 
 
 # Requirements
 - Python 3
