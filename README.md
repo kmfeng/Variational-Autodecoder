@@ -3,7 +3,7 @@ Implementation of [Variational Auto-decoder](https://arxiv.org/pdf/1903.00840.pd
 
 ![alt text](https://github.com/A2Zadeh/Variational-Autodecoder/blob/master/VAD.png)
 
-# Introduction
+# Introduction #
 
 Variational Auto-Decoder refers to **encoderless** implementation of the Auto-Encoding Variational Bayes (AEVB) Algorithm. As opposed to using an encoder to infer the parameters of the posterior of the latent space ![equation](https://latex.codecogs.com/gif.latex?q%28z%7Cx_i%29): 
 
@@ -25,7 +25,7 @@ The above method finds a mixture model based on ![equation](https://latex.codeco
 
 ![alt text](https://github.com/A2Zadeh/Variational-Autodecoder/blob/master/Algorithm.png)
 
-##Practical Considerations
+## Practical Considerations 
 
 The losses for the reconstruction and the loss for KL (reparameterization) may act in opposite directions; simiar to VAE, enforcing nice distributional properties may come at the cost of reconstruction inaccuracy for certain data points. The code allows you to balance between the reconstruction and the KL terms. As a general rule of thumb, more complex datasets may not conform to simple ![equation](https://latex.codecogs.com/gif.latex?q%28z%29), such as densities with one mode. Therefore, the reconstruction may be bad. Therefore, we also allow for dropping the reparameterization fully, thus the model only learns a mixture based on ![equation](https://latex.codecogs.com/gif.latex?%5C%7Bq%28z%7Cx_i%29%5C%7D%5E%7Bx_i%20%5Cin%20X%7D). Due to missingness in data, learning the ![equation](https://latex.codecogs.com/gif.latex?%5CSigma_i) may also be problematic hence it can be treated as a hyperparameter. 
 
