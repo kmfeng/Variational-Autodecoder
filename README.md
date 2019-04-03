@@ -17,7 +17,7 @@ The above assumes the decoder may have multiple modes (similar representation fo
 
 --> First - An arbitrary distribution (which is easy to sample from) is sampled ![equation](https://latex.codecogs.com/gif.latex?z%20%5Csim%20q%28z%7Cx_i%29). This distribution is assumed to have one mode, hence performing gradient ascend (or descend) leads to a single outcome regardless of starting location (convergence to the unique peak of the distribution). One such distribution is a multivariate normal distribution ![equation](https://latex.codecogs.com/gif.latex?q%28z%7Cx_i%29%3A%3D%5Cmathcal%7BN%7D%28z%3B%20%5Cmu_i%2C%5CSigma_i%29). Other distributions with one mode exist and can be used as well. 
 
---> Second - After the sample is drawn ![equation](https://latex.codecogs.com/gif.latex?z) is drawn, the sample is used as input to the decoder ![equation](https://latex.codecogs.com/gif.latex?%5Cmathcal%7BF%7D%20%28%5Ccdot%3B%5Ctheta%29). 
+--> Second - After the sample(s, one or more samples) ![equation](https://latex.codecogs.com/gif.latex?z) is drawn, the sample is used as input to the decoder ![equation](https://latex.codecogs.com/gif.latex?%5Cmathcal%7BF%7D%20%28%5Ccdot%3B%5Ctheta%29). 
 
 --> Third - Training is done by gradient ascend (or descend) w.r.t ![equation](https://latex.codecogs.com/gif.latex?%5Ctheta%2C%20%5Cmu_i%2C%20%5CSigma_i), inference (testing) is done by gradient ascend (or descend) w.r.t ![equation](https://latex.codecogs.com/gif.latex?%5Cmu_i%2C%20%5CSigma_i). 
 
