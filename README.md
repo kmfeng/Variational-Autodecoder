@@ -1,5 +1,7 @@
 Implementation of [Variational Auto-decoder](https://arxiv.org/pdf/1903.00840.pdf)
-(A. Zadeh, Y.C. Lim, P. Liang, L.-P. Morency, 2019.), by Yao Chong Lim.
+(A. Zadeh, Y.C. Lim, P. Liang, L.-P. Morency, 2019.), by Yao Chong Lim. 
+
+# Variational Auto-Decoder refers to Encoderless Implementation of the Auto-Encoding Variational Bayes (AEVB) Algorithm. 
 
 # Requirements
 - Python 3
