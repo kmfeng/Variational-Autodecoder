@@ -35,6 +35,9 @@ We make comparisons between VAE and VAD (both example implementations of AEVB al
 
 The losses for the reconstruction and the loss for KL (reparameterization) may act in opposite directions; simiar to VAE, enforcing nice distributional properties may come at the cost of reconstruction inaccuracy for certain data points. The code allows you to balance between the reconstruction and the KL terms. As a general rule of thumb, more complex datasets may not conform to simple ![equation](https://latex.codecogs.com/gif.latex?q%28z%29), such as densities with one mode. Therefore, the reconstruction may be bad. Therefore, we also allow for dropping the reparameterization fully, thus the model only learns a mixture based on ![equation](https://latex.codecogs.com/gif.latex?%5C%7Bq%28z%7Cx_i%29%5C%7D%5E%7Bx_i%20%5Cin%20X%7D). Due to missingness in data, learning the ![equation](https://latex.codecogs.com/gif.latex?%5CSigma_i) may also be problematic hence it can be treated as a hyperparameter. 
 
+# Code
+The rest of this readme contains details of how to run the code and the requirements for it.
+
 # Requirements
 - Python 3
 
