@@ -25,6 +25,8 @@ The above assumes the decoder may have multiple modes (similar representation fo
 
 The above method finds a mixture model based on ![equation](https://latex.codecogs.com/gif.latex?%5C%7Bq%28z%7Cx_i%29%5C%7D%5E%7Bx_i%20%5Cin%20X%7D). This mixture model may or may not have desirable generative properties such as meaningful manifold walk, given a limited dataset ![equation](https://latex.codecogs.com/gif.latex?X). The VAE reparameterization trick can be used to enforce certain properties using another distribution ![equation](https://latex.codecogs.com/gif.latex?q%28z%29). A batch reparameterization trick using KL divergence can be used to ensure samples drawn from a batch follow the distribution ![equation](https://latex.codecogs.com/gif.latex?q%28z%29). 
 
+![alt text](https://github.com/A2Zadeh/Variational-Autodecoder/blob/master/Algorithm.png)
+
 # Requirements
 - Python 3
 
