@@ -1,7 +1,9 @@
 Implementation of [Variational Auto-decoder](https://arxiv.org/pdf/1903.00840.pdf)
-(A. Zadeh, Y.C. Lim, P. Liang, L.-P. Morency, 2019.), by Yao Chong Lim. 
+(A. Zadeh, Y.C. Lim, P. Liang, L.-P. Morency, 2019.), by Yao Chong Lim. Our paper shows that encoderless implementation of the AEVB algorithm (called Variational Auto-Decoder) shows very promising performance in generative modeling from data with missingness (low and high missingness). Furthermore, we show that for a probabilistic decoder with only one mode, the approximate posterior disitrbution can be infered efficiently using only gradient ascend (or descned) without the need for MCMC sampling from the decoder. 
 
 # Introduction
+
+
 
 Variational Auto-Decoder refers to **encoderless** implementation of the Auto-Encoding Variational Bayes (AEVB) Algorithm. As opposed to using an encoder to infer the parameters of the posterior of the latent space ![equation](https://latex.codecogs.com/gif.latex?q%28z%7Cx_i%29): 
 
