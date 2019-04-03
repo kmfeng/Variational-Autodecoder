@@ -3,7 +3,7 @@ Implementation of [Variational Auto-decoder](https://arxiv.org/pdf/1903.00840.pd
 
 # Introduction
 
-Variational Auto-Decoder refers to **encoderless** Implementation of the Auto-Encoding Variational Bayes (AEVB) Algorithm. As opposed to using an encoder to learn the posterior of the latent space <img src="https://latex.codecogs.com/gif.latex?O_t=\text { Onset event at time bin } t " />
+Variational Auto-Decoder refers to **encoderless** Implementation of the Auto-Encoding Variational Bayes (AEVB) Algorithm. As opposed to using an encoder to learn the posterior of the latent space <a href="https://www.codecogs.com/eqnedit.php?latex=q(z|x_i)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?q(z|x_i)" title="q(z|x_i)" /></a>
 
 # Requirements
 - Python 3
