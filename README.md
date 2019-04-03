@@ -9,7 +9,7 @@ Variational Auto-Decoder refers to **encoderless** implementation of the Auto-En
 
 --> First - The input to a probabilstic decoder ![equation](https://latex.codecogs.com/gif.latex?%5Cmathcal%7BF%7D%20%28%5Ccdot%3B%5Ctheta%29) is sampled from using Markov Chain Monte Carlo approaches (MCMC). 
 
---> Second - An arbitrary distribution (which is easy to sample from) is fitted to the sampled decoder inputs using Expectation-Maximization (EM). 
+--> Second - An arbitrary distribution ![equation](https://latex.codecogs.com/gif.latex?z%20%5Csim%20q%28z%7Cx_i%29) - which is easy to sample from - is fitted to the sampled decoder inputs using Expectation-Maximization (EM). 
 
 --> Third - The fitted distribution is used to sample the neighborhood of a datapoint ![equation](https://latex.codecogs.com/gif.latex?x_i). 
 
