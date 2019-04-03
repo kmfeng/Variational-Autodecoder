@@ -157,12 +157,12 @@ def optimize_network(args, model, y, mask, mode, **kwargs):
                 if args['model'] == 'vae':
                     z_var = torch.full_like(latents[idxes], args['log_var'])
                     kl_loss = 0.5 * torch.sum(torch.exp(z_var) + latents[idxes]**2 - 1. - z_var) / batch_size
-                    total_loss = loss + kl_loss
+                    total_loss = loss + args['ratio_kl'] * kl_loss
 
                 elif args['model'] == 'vae_free':
                     kl_loss = 0.5 * torch.sum(torch.exp(latent_log_var[idxes]) + latents[idxes]**2 - 1. - latent_log_var[idxes])
                     kl_loss /= batch_size
-                    total_loss = loss + kl_loss
+                    total_loss = loss + args['ratio_kl'] * kl_loss
 
                 else:
                     raise NotImplementedError
@@ -275,7 +275,7 @@ def create_model(args):
     elif args['model'] == 'vae':
         if args['log_var'] is None:
             error_msg = "log_var cannot be None for vae. "
-            error_msg += "Use vae_free if you want to optimize the log-variance."
+            error_msg += "Use --model vae_free if you want to optimize the log-variance."
             raise ValueError(error_msg)
 
         if args.get('sfm_transform', False):
@@ -558,6 +558,8 @@ def parse_arguments():
     parser.add_argument('--sfm_transform', action='store_true')
     parser.add_argument('--kl', action='store_true',
             help='add KL-divergence term to VAE loss')
+    parser.add_argument('--ratio_kl', type=float, default=1,
+            help='ratio of KL term to reconstruction loss in VAE loss (if --kl is set). default is 1')
 
     parser.add_argument('--dataset_path', help='override default dataset location')
 
