@@ -15,7 +15,7 @@ Variational Auto-Decoder refers to **encoderless** implementation of the Auto-En
 
 The above assumes the decoder may have multiple modes (similar representation for different data points). By assuming a single mode for the probabilistic decoder, the process of inference can be simplified by removing the MCMC sampling (first step of the above): 
 
---> First - An arbitrary distribution (which is easy to sample from, let's say a multivariate normal distribution for now but there are other distributions with one mode as well ) is sampled from ![equation](https://latex.codecogs.com/gif.latex?z%20%5Csim%20q%28z%7Cx_i%29). This distribution is assumed to have one mode, hence performing gradient ascend (or descend) leads to a single outcome. One such distribution is a normal distribution ![equation](https://latex.codecogs.com/gif.latex?q%28z%7Cx_i%29%3A%3D%5Cmathcal%7BN%7D%28z%3B%20%5Cmu_i%2C%5CSigma_i%29)
+--> First - An arbitrary distribution (which is easy to sample from) is sampled from ![equation](https://latex.codecogs.com/gif.latex?z%20%5Csim%20q%28z%7Cx_i%29). This distribution is assumed to have one mode (let's say a multivariate normal distribution, there are other distributions with one mode as well and can be used here), hence performing gradient ascend (or descend) leads to a single outcome. One such distribution is a normal distribution ![equation](https://latex.codecogs.com/gif.latex?q%28z%7Cx_i%29%3A%3D%5Cmathcal%7BN%7D%28z%3B%20%5Cmu_i%2C%5CSigma_i%29)
 
 --> Second - After the sample is drawn ![equation](https://latex.codecogs.com/gif.latex?z) is drawn, the sample is used as input to the decoder ![equation](https://latex.codecogs.com/gif.latex?%5Cmathcal%7BF%7D%20%28%5Ccdot%3B%5Ctheta%29). 
 
