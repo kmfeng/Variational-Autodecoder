@@ -1,5 +1,5 @@
 Implementation of [Variational Auto-Decoder](https://arxiv.org/pdf/1903.00840.pdf)
-(A. Zadeh, Y.C. Lim, P. Liang, L.-P. Morency, 2019.). Code is implemented and made easy to run by Yao Chong Lim. Our paper shows that encoderless implementation of the AEVB algorithm (named in our paper as Variational Auto-Decoder - VAD) shows very promising performance in generative modeling from data with missingness (low and high missingness). Furthermore, we show that for a probabilistic decoder with only one mode, the approximate posterior disitrbution can be infered efficiently using only gradient ascend (or descned) without the need for MCMC sampling from the decoder. 
+(A. Zadeh, Y.C. Lim, P. Liang, L.-P. Morency, 2019.). Code is implemented and made easy to run by Yao Chong Lim. Our paper shows that encoderless implementation of the AEVB algorithm (named in our paper as Variational Auto-Decoder - VAD) shows very promising performance in generative modeling from data with missingness (low and high missingness). Furthermore, we show that for a probabilistic decoder with only one mode, the approximate posterior disitrbution can be infered efficiently using only gradient ascend (or descned) without the need for MCMC sampling from the decoder. VAD is a very appealing generative model for multimodal machine learning, since the output of the decoder can be weighed. This weighing mechanism allows for having a confidence measure associated to each dimension. For example, you can marginalize modality information that is not helpful or you can imputate missing values. 
 
 ![alt text](https://github.com/A2Zadeh/Variational-Autodecoder/blob/master/VAD.png)
 
@@ -101,7 +101,7 @@ python configs/make_configs.py test_configs
 python pytorch/train_model.py train mnist test_configs 0 --model vae --cuda --log_var -14 --n_train_epochs 500 --n_test_epochs 500 --test_batch_size 256 --batch_size 32
 python pytorch/train_model.py test_missing mnist test_configs 0 --model vae --cuda --log_var -14 --n_test_epochs 500 --test_batch_size 256 --missing_mode fixed
 ```
-Since imputation is related to recreating the exact missing value, very small variances work better. 
+The above models are applied to data imputation. Since imputation is related to recreating the exact missing value, very small variances work better than larger ones. 
 
 For the synthetic datasets, you will need to provide the file prefix for the data files:
 ```
