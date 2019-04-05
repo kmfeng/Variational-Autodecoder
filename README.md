@@ -101,6 +101,7 @@ python configs/make_configs.py test_configs
 python pytorch/train_model.py train mnist test_configs 0 --model vae --cuda --log_var -14 --n_train_epochs 500 --n_test_epochs 500 --test_batch_size 256 --batch_size 32
 python pytorch/train_model.py test_missing mnist test_configs 0 --model vae --cuda --log_var -14 --n_test_epochs 500 --test_batch_size 256 --missing_mode fixed
 ```
+Since imputation is related to recreating the exact missing value, very small variances work better. 
 
 For the synthetic datasets, you will need to provide the file prefix for the data files:
 ```
