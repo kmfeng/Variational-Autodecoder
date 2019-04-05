@@ -7,13 +7,13 @@ Implementation of [Variational Auto-Decoder](https://arxiv.org/pdf/1903.00840.pd
 
 Variational Auto-Decoder refers to **encoderless** implementation of the Auto-Encoding Variational Bayes (AEVB) Algorithm. As opposed to using an encoder to infer the parameters of the posterior of the latent space ![equation](https://latex.codecogs.com/gif.latex?q%28z%7Cx_i%29): 
 
---> First - The input to a probabilistic decoder ![equation](https://latex.codecogs.com/gif.latex?%5Cmathcal%7BF%7D%20%28%5Ccdot%3B%5Ctheta%29) is sampled using Markov Chain Monte Carlo approaches (MCMC). This is essentially similar to a probabilistic inversion of a decoder for each datapoint ![equation](https://latex.codecogs.com/gif.latex?x_i)
+--> First - The input to a probabilistic decoder ![equation](https://latex.codecogs.com/gif.latex?%5Cmathcal%7BF%7D%20%28%5Ccdot%3B%5Ctheta%29) is sampled using Markov Chain Monte Carlo approaches (MCMC). This is essentially similar to a probabilistic inversion of a decoder for each datapoint ![equation](https://latex.codecogs.com/gif.latex?x_i). 
 
 --> Second - An arbitrary distribution ![equation](https://latex.codecogs.com/gif.latex?z%20%5Csim%20q%28z%7Cx_i%29) - which is easy to sample from - is fitted to the sampled decoder inputs using Expectation-Maximization (EM). 
 
---> Third - The fitted distribution is used to sample the neighborhood of a datapoint ![equation](https://latex.codecogs.com/gif.latex?x_i). 
+--> Third - The fitted distribution is used to sample the similar data points to ![equation](https://latex.codecogs.com/gif.latex?x_i). 
 
-The above assumes the decoder may have multiple modes (similar representation for different data points). By assuming a single mode for the probabilistic decoder, the process of inference can be simplified by removing the MCMC sampling (first step of the above): 
+The above assumes the decoder may have multiple modes (multiple representation can generate the same data point). By assuming a single mode for the probabilistic decoder, the process of inference can be simplified by removing the MCMC sampling (first step of the above): 
 
 --> First - An arbitrary distribution (which is easy to sample from) is sampled ![equation](https://latex.codecogs.com/gif.latex?z%20%5Csim%20q%28z%7Cx_i%29). This distribution is assumed to have one mode, hence performing gradient ascend (or descend) leads to a single outcome regardless of starting location (convergence to the unique peak of the distribution). One such distribution is a multivariate normal distribution ![equation](https://latex.codecogs.com/gif.latex?q%28z%7Cx_i%29%3A%3D%5Cmathcal%7BN%7D%28z%3B%20%5Cmu_i%2C%5CSigma_i%29). Other distributions with one mode exist and can be used as well. 
 
