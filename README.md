@@ -91,7 +91,7 @@ To test a trained model on clean data, use the `test_clean` option.
 
 Example:
 ```
-python pytorch/train_model.py test_clean mnist test_configs 0 --model vae --log_var -14 --cuda --n_test_epochs 5 --test_batch_size 256
+python pytorch/train_model.py test_clean mnist test_configs 0 --model vae --log_var -3 --cuda --n_test_epochs 5 --test_batch_size 256
 ```
 
 ## Sample commands
