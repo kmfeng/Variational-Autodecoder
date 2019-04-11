@@ -21,7 +21,7 @@ The above assumes the decoder may have multiple modes (there are multiple peaks 
 
 --> Third - Training is done by gradient ascend (or descend) w.r.t ![equation](https://latex.codecogs.com/gif.latex?%5Ctheta%2C%20%5Cmu_i%2C%20%5CSigma_i), inference (testing) is done by gradient ascend (or descend) w.r.t ![equation](https://latex.codecogs.com/gif.latex?%5Cmu_i%2C%20%5CSigma_i). 
 
-The above method finds a mixture model based on ![equation](https://latex.codecogs.com/gif.latex?%5C%7Bq%28z%7Cx_i%29%5C%7D%5E%7Bx_i%20%5Cin%20X%7D). Sampling from this mixture model should essentially generate the learned density of ![equation](https://latex.codecogs.com/gif.latex?x). This mixture model may or may not have desirable generative properties such as meaningful manifold walk, given a limited dataset ![equation](https://latex.codecogs.com/gif.latex?X). The VAE reparameterization trick can be used to enforce certain properties using another distribution ![equation](https://latex.codecogs.com/gif.latex?q%28z%29) - one example is unit multivariate gaussian. 
+The above method finds a mixture model based on ![equation](https://latex.codecogs.com/gif.latex?%5C%7Bq%28z%7Cx_i%29%5C%7D%5E%7Bx_i%20%5Cin%20X%7D). Sampling from this mixture model should essentially generate the learned density of ![equation](https://latex.codecogs.com/gif.latex?x). This mixture model may or may not have desirable generative properties such as meaningful manifold walk, given a limited dataset ![equation](https://latex.codecogs.com/gif.latex?X). The VAE reparameterization trick can be used to enforce certain properties using another distribution - one example is unit multivariate gaussian. 
 
 ![alt text](https://github.com/A2Zadeh/Variational-Autodecoder/blob/master/Algorithm.png)
 
