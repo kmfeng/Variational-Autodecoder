@@ -51,7 +51,7 @@ pip install -r requirements_vad.txt
 ```
 
 ## Obtaining the data
-Obtain the data from [here], and extract it to `data/`. Then your directory should look like
+Obtain the data from [here](https://drive.google.com/file/d/1rZN3oWRvKUgJk-wIGm8r0Tj7cDSoZCcv/view?usp=sharing), and extract it to `data/`. Then your directory should look like
 ```
 data/
 - mnist/
