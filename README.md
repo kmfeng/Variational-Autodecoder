@@ -13,7 +13,7 @@ Variational Auto-Decoder refers to **encoderless** implementation of the Auto-En
 
 --> Third - The fitted distribution is used to sample the similar data points to ![equation](https://latex.codecogs.com/gif.latex?x_i). 
 
-The above assumes the decoder may have multiple modes (there are multiple peaks in the distribution, each of the peaks show high posterior probability). By assuming a single mode for the probabilistic decoder, the process of inference can be simplified by removing the MCMC sampling (first step of the above): 
+The above assumes the decoder may have multiple modes (there are multiple peaks in the distribution, each of the peaks show high probability in generating a particular data point). By assuming a single mode for the probabilistic decoder, the process of inference can be simplified by removing the MCMC sampling (first step of the above): 
 
 --> First - An arbitrary distribution (which is easy to sample from) is sampled ![equation](https://latex.codecogs.com/gif.latex?z%20%5Csim%20q%28z%7Cx_i%29). This distribution is assumed to have one mode, hence performing gradient ascend (or descend) leads to a single outcome regardless of starting location (convergence to the unique peak of the distribution). One such distribution is a multivariate normal distribution ![equation](https://latex.codecogs.com/gif.latex?q%28z%7Cx_i%29%3A%3D%5Cmathcal%7BN%7D%28z%3B%20%5Cmu_i%2C%5CSigma_i%29). Other distributions with one mode exist and can be used as well. 
 
