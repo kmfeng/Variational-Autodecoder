@@ -33,7 +33,7 @@ We make comparisons between VAE and VAD (both example implementations of AEVB al
 
 The following demonstrates a comparison between VAD and VAE for the adversarial case where missingness ratio is different between train and test. VAE implementation which uses an encoder seems to blur around the given points, while VAD generates more information than just the given points. Models are trained on the data with no missingness (data similar to Example Image) and tested on data with missingness (the missingness pattern is Missing Completely at Random - MCAR). 
 
-![alt text](https://github.com/A2Zadeh/Variational-Autodecoder/blob/master/MNIST_Recon.png)
+![alt text](https://github.com/A2Zadeh/Variational-Autodecoder/blob/master/MNISTs.png)
 
 ## Practical Considerations 
 
